@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Correcteur</title>
+  <script src="https://appsforoffice.microsoft.com/lib/1/hosted/office.js"></script>
+  <link rel="stylesheet" href="taskpane.css">
+</head>
+<body>
+  <header>
+    <h1>Correcteur</h1>
+    <p class="sub">Orthographe et conjugaison du mail en cours</p>
+  </header>
+
+  <div class="actions">
+    <button id="btn-correct" class="primary">Corriger le mail</button>
+    <button id="btn-undo" class="secondary" hidden>Annuler la correction</button>
+  </div>
+
+  <div id="status" class="status">Prêt.</div>
+
+  <ul id="fixes" class="fixes"></ul>
+
+  <details class="settings">
+    <summary>Réglages</summary>
+    <label>Langue du mail
+      <select id="language">
+        <option value="fr">Français</option>
+        <option value="auto">Détection automatique</option>
+      </select>
+    </label>
+    <label class="check"><input type="checkbox" id="autorun" checked> Corriger dès l'ouverture du volet</label>
+    <div class="dict">
+      <div class="dict-title">Mots à ne jamais corriger</div>
+      <ul id="dict-list"></ul>
+      <form id="dict-form"><input id="dict-input" placeholder="Ajouter un mot…"><button type="submit" class="secondary small">Ajouter</button></form>
+    </div>
+  </details>
+
+  <p class="note">Seul le texte que vous écrivez est corrigé : la signature et l'historique de la conversation ne sont pas modifiés. Le texte est envoyé au service LanguageTool pour la vérification.</p>
+
+  <script src="correcteur.js"></script>
+  <script src="taskpane.js"></script>
+</body>
+</html>
